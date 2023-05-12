@@ -1,2 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 /* @import "../node_modules/bootstrap/dist/css/bootstrap.min.css"; */
+
+.form-control.ng-touched.ng-invalid {
+    border-bottom: 5px solid #A94442;
+}
+
+.form-control.ng-touched.ng-valid {
+    border-bottom: 5px solid #41A948;
+}

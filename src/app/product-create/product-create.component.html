@@ -1,0 +1,51 @@
+<h3>Create a Product</h3>
+<form #form="ngForm" (ngSubmit)="saveProduct(form)">
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input required minlength="5" [(ngModel)]="model.name" #name="ngModel" type="text" name="name" id="name" class="form-control">
+        <div class="alert alert-danger mt-1" *ngIf="name.invalid && name.touched">
+            Please use a valid name.
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <input [(ngModel)]="model.price" #price="ngModel" required min="0" max="1000000" type="number" name="price" id="price" class="form-control">
+        <div class="alert alert-danger mt-1" *ngIf="price.invalid && price.touched">
+            Please enter a valid price.
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="imageURL" class="form-label">Image URL</label>
+        <input [(ngModel)]="model.imageURL" required minlength="0" #imageURL="ngModel" type="text" name="imageURL" id="imageURL" class="form-control">
+        <div class="alert alert-danger mt-1" *ngIf="imageURL.invalid && imageURL.touched">
+            Please enter a valid image.
+        </div>
+        <div class="div alert alert-danger mt-1" *ngIf="imgerror">
+            {{ imgerror }} 
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <ckeditor [(ngModel)]="model.description" name="description" id="description"></ckeditor>
+    </div>
+    <div class="form-check mb-3">
+        <input [(ngModel)]="model.isActive" class="form-check-input" type="checkbox" name="isActive" id="isActive">
+        <label class="form-check-label" for="isActive">
+          Is Active?
+        </label>
+    </div>
+    <div class="mb-3">
+        <label for="categoryId" class="form-label">Category</label>
+        <select [(ngModel)]="model.categoryId" name="categoryId" id="categoryId" class="form-select">
+            <option value="0">Categories</option>
+            <option *ngFor="let c of categories" value="{{ c.id }}">{{ c.name }}</option>
+        </select>
+    </div>
+    <div class="div alert alert-danger mt-1" *ngIf="error">
+        {{ error }} 
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Save Product</button>
+    <div class="alert alert-danger mt-1" *ngIf="formerror">
+        {{formerror}}
+    </div>
+</form>
