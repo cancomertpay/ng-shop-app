@@ -12,11 +12,22 @@
                 <li class="nav-item">
                     <a routerLink="/products" class="nav-link">Products</a>
                 </li>
-                <li class="nav-item">
+                <li *ngIf="isAdmin" class="nav-item">
                     <a routerLink="/products/create" class="nav-link">Create Product</a>
                 </li>
-                <li class="nav-item">
+                <li *ngIf="isAdmin" class="nav-item">
                     <a routerLink="/categories/create" class="nav-link">Create Category</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li *ngIf="!isAuthenticated" class="nav-item">
+                    <a routerLink="/auth" class="nav-link">Login</a>
+                </li>
+                <li *ngIf="!isAuthenticated" class="nav-item">
+                    <a routerLink="/auth" class="nav-link">Register</a>
+                </li>
+                <li *ngIf="isAuthenticated" class="nav-item">
+                    <a (click)="logOut()" routerLink="/auth" class="nav-link">Logout</a>
                 </li>
             </ul>
         </div>
