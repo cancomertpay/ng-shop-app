@@ -9,7 +9,7 @@ import { environment } from "src/environments/environment";
 @Injectable()
 export class ProductService {
 
-    private url = environment.database_url
+    private url = environment.database_url;
 
     constructor(
         private http: HttpClient,
