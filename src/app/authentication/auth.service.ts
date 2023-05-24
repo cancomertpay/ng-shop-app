@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { AuthResponse } from './auth-response.model';
 import { BehaviorSubject, Subject, catchError, tap, throwError } from 'rxjs';
 import { User } from './user.model';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -10,7 +11,7 @@ import { User } from './user.model';
 })
 export class AuthService {
 
-  api_key="AIzaSyDv2kUqj_OQwaqPdKUam5jPm2nP8pVchcA"
+  api_key= environment.api_key
   authResponse: AuthResponse;
   user = new BehaviorSubject<User|null>( null);
 
