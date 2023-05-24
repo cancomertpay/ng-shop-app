@@ -1,8 +1,8 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Product } from "../models/product";
+import { Product } from "./product.model";
 import { Observable, delay, exhaustMap, map, take, tap } from "rxjs";
-import { AuthService } from "./auth.service";
+import { AuthService } from "../authentication/auth.service";
 
 // Local service
 @Injectable()

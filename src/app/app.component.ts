@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from './services/product.service';
-import { AuthService } from './services/auth.service';
+import { ProductService } from './products/product.service';
+import { AuthService } from './authentication/auth.service';
 
 @Component({
   selector: 'app',
